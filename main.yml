@@ -1,0 +1,8 @@
+---
+- name: Setup new Ubuntu installation
+  hosts: localhost
+  gather_facts: true 
+  become: true
+
+  roles:
+    - install_packages

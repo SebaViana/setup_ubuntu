@@ -1,0 +1,9 @@
+packages:
+  - openssh-server
+  - git
+  - google-chrome-stable
+  - curl
+  - htop
+  - wget
+  - net-tools
+  - nmap # Network scanning tool for discovering open ports. Usage: nmap public_ip
