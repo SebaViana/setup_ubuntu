@@ -1,0 +1,35 @@
+" Enable syntax highlighting if the feature is supported
+if has("syntax")
+  syntax on
+endif
+
+" Set the background to dark
+set background=dark
+
+" Set the number of spaces per tab to 4 and use spaces for indentation
+set tabstop=4
+set expandtab
+
+" Enable autocmd if the feature is supported and when opening a file, jump to the last edited line
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Show line numbers and set a different color for index lines.
+set number
+highlight LineNr ctermfg=lightgray
+
+" Automatically indent new lines
+set autoindent
+
+" Wrap long lines instead of cutting them off
+set wrap
+set linebreak
+set nolist
+
+" Set the number of lines to keep visible above/below the cursor when scrolling
+set scrolloff=3
+
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+

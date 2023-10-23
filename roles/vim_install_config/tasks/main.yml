@@ -1,0 +1,14 @@
+---
+- name: Install Vim
+  apt:
+    name: vim
+    state: present
+
+- name: Copy vimrc configuration file
+  copy:
+    src: "files/vimrc"
+    dest: "/etc/vim/vimrc"
+    owner: root
+    group: root
+    mode: "0644"
+
