@@ -1,7 +1,6 @@
 packages:
   - openssh-server
   - git
-  - google-chrome-stable
   - curl
   - htop
   - wget
