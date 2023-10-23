@@ -7,3 +7,4 @@
   roles:
     - install_packages
     - vim_install_config
+    - install_chrome

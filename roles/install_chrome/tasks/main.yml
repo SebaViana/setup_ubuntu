@@ -1,0 +1,13 @@
+---
+- name: Add the Google Chrome APT repository
+  apt_repository:
+    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    state: present
+    update_cache: yes
+  register: chrome_repo
+
+- name: Install Google Chrome
+  apt:
+    name: google-chrome-stable
+    state: latest
+  when: chrome_repo.changed
