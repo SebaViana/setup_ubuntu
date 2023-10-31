@@ -1,13 +1,19 @@
 ---
-- name: Add the Google Chrome APT repository
+- name: Add Google Chrome APT repository key
+  become: yes
+  apt_key:
+    url: "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+    state: present
+
+- name: Add Google Chrome APT repository
+  become: yes
   apt_repository:
     repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
     state: present
-    update_cache: yes
-  register: chrome_repo
 
-- name: Install Google Chrome
+- name: Install Google Chrome on Debian
+  become: yes
   apt:
     name: google-chrome-stable
-    state: latest
-  when: chrome_repo.changed
+    update_cache: yes
+  tags: chrome
