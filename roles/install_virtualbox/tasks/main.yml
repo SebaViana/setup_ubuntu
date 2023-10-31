@@ -1,0 +1,15 @@
+---
+- name: Download VirtualBox .deb package
+  get_url:
+    url: https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Debian~bookworm_amd64.deb
+    dest: ~/Downloads/virtualbox-7.0_7.0.12-159484~Debian~bookworm_amd64.deb
+    mode: 0644
+
+- name: Update APT package cache
+  apt:
+    update_cache: yes
+
+- name: Install VirtualBox
+  apt:
+    deb: "~/Downloads/virtualbox-7.0_7.0.12-159484~Debian~bookworm_amd64.deb"
+    state: present
