@@ -6,3 +6,4 @@ packages:
   - wget
   - net-tools
   - nmap # Network scanning tool for discovering open ports. Usage: nmap public_ip
+  - vagrant
