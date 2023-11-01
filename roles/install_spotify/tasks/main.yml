@@ -1,0 +1,22 @@
+---
+- name: Import Spotify GPG key
+  command: "{{ item }}"
+  with_items:
+    - "curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg"
+
+- name: Add Spotify repository to sources list
+  copy:
+    content: "deb http://repository.spotify.com stable non-free"
+    dest: "/etc/apt/sources.list.d/spotify.list"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Update apt repository cache
+  apt:
+    update_cache: yes
+
+- name: Install Spotify client
+  apt:
+    name: spotify-client
+    state: present
